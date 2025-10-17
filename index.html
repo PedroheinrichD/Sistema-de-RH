@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <div class="container">
+        <h1>Sistema RH - Avaliação de Desempenho</h1>
+
+        <form id="formFuncionario">
+            <input type="text" placeholder="Nome do funcionário" id="nome" required>
+            <input type="text" placeholder="Cargo" id="cargo" required>
+            <input type="number" placeholder="Nota 1" id="nota1" required>
+            <input type="number" placeholder="Nota 2" id="nota2" required>
+            <input type="number" placeholder="Nota 3" id="nota3" required>
+            <button type="submit">Adicionar Funcionário</button>
+        </form>
+
+        <div id="relatorio"></div>
+    </div>
+
+
 </body>
-<script src="js.js" ></script>
+<script src="js.js"></script>
+
 </html>
