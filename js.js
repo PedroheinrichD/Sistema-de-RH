@@ -13,7 +13,7 @@ let funcionarios = [];
 // A função DEVE RETORNAR o valor da média, não apenas imprimi-lo.
 function calcMedia(nota1, nota2, nota3) {
     // Retorna o resultado para quem chamou
-    return (nota1 + nota2 + nota3) / 3; 
+    return (nota1 + nota2 + nota3) / 3;
 }
 
 
@@ -44,7 +44,7 @@ function cadastrarFuncionarioPuro(nome, cargo, nota1, nota2, nota3) {
         nota3
     };
     funcionarios.push(novoFuncionario);
-    
+
 }
 
 
@@ -52,7 +52,7 @@ function cadastrarFuncionarioPuro(nome, cargo, nota1, nota2, nota3) {
 // 4. CHAMADA DE TESTE (Simulação de Entrada)
 // ==========================================================
 cadastrarFuncionarioPuro('Pedro', 'dev', 2, 2, 2);
-cadastrarFuncionarioPuro('Maria', 'Gerente', 9, 8, 9);
+cadastrarFuncionarioPuro('joao', 'analista', 9, 9, 7);
 
 
 
@@ -61,10 +61,25 @@ cadastrarFuncionarioPuro('Maria', 'Gerente', 9, 8, 9);
 // 5. FUNÇÃO DE LISTAGEM/RELATÓRIO (Ainda precisa ser escrita)
 // ==========================================================
 
-/*
-// O loop não deve ser solto, mas sim encapsulado em uma função.
-// E esse loop não faz nada além de acessar o array.
-for (let i = 0; i < funcionarios.length; i++) {
-    const elementos = funcionarios[i];
+function gerarRelatorio() {
+    for (let i = 0; i < funcionarios.length; i++) {
+        let elementos = funcionarios[i];
+        let media = calcMedia(elementos.nota1, elementos.nota2, elementos.nota3)
+        let classificacao = desempenho(media);
+
+
+     console.log(
+    `Nome: ${elementos.nome} 
+     Média: ${media.toFixed(1)}
+     Desempenho: ${classificacao}
+    `
+        );
+    }
+
+
+
+
 }
-*/
+
+gerarRelatorio()
+
