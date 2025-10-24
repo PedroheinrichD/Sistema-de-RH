@@ -51,8 +51,7 @@ function cadastrarFuncionarioPuro(nome, cargo, nota1, nota2, nota3) {
 // ==========================================================
 // 4. CHAMADA DE TESTE (Simulação de Entrada)
 // ==========================================================
-cadastrarFuncionarioPuro('Pedro', 'dev', 2, 2, 2);
-cadastrarFuncionarioPuro('joao', 'analista', 9, 9, 7);
+/*cadastrarFuncionarioPuro('Pedro', 'dev', 2, 2, 2);*/
 
 
 
@@ -60,26 +59,39 @@ cadastrarFuncionarioPuro('joao', 'analista', 9, 9, 7);
 // ==========================================================
 // 5. FUNÇÃO DE LISTAGEM/RELATÓRIO (Ainda precisa ser escrita)
 // ==========================================================
-
 function gerarRelatorio() {
+    
+    let meuFormulario = document.querySelector('#formFuncionario');
+    let relatorioContainer = document.querySelector('#relatorio');
+    
+    relatorioContainer.innerHTML = ''; 
+
+    // ==========================================================
     for (let i = 0; i < funcionarios.length; i++) {
         let elementos = funcionarios[i];
-        let media = calcMedia(elementos.nota1, elementos.nota2, elementos.nota3)
+        let media = calcMedia(elementos.nota1, elementos.nota2, elementos.nota3);
         let classificacao = desempenho(media);
 
+        let htmlFuncionario = `
+            <div>
+                <h4>Funcionário: ${elementos.nome} (${elementos.cargo})</h4>
+                <p>Média: ${media.toFixed(1)}</p>
+                <p>Desempenho: ${classificacao}</p>
+                <hr>
+            </div>
+        `;
 
-     console.log(
-    `Nome: ${elementos.nome} 
-     Média: ${media.toFixed(1)}
-     Desempenho: ${classificacao}
-    `
-        );
+        relatorioContainer.innerHTML += htmlFuncionario;
     }
-
-
-
-
+    // ==========================================================
+    meuFormulario.style.display = 'none';
+    relatorioContainer.style.display = 'block';
+    
 }
 
-gerarRelatorio()
+let button = document.querySelector('#botao');
+button.addEventListener('click', gerarRelatorio); // Você ainda precisa de uma função para cadastrar
 
+function adicionarForm(event) {
+    event.preventDefault()
+}
